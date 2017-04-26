@@ -75,12 +75,17 @@ public class Startup {
         }
 
         //use the set to remove the duplicates
+        //remember sets aren't used for storing, only transforming, so 
+        //clear the list and apply the contents from the set
         Set<Dog> dogSet = new LinkedHashSet<Dog>(dogList);
+        dogList.clear();
+        dogList.addAll(dogSet);
 
-        System.out.println("\nThis is using the set. It removes the duplicates: ");
+        System.out.println("\nThe list now doesn't have any duplicates: ");
 
-        for (Dog dogInSet : dogSet) {
-            System.out.println(dogInSet);
+        //output the list
+        for (Dog dog : dogList) {
+            System.out.println(dog);
         }
     }
 

@@ -3,6 +3,7 @@ package common;
 import java.util.Objects;
 
 public class Address {
+    private String addressId;
     private String address1;
     private String city;
     private String state;
@@ -10,6 +11,14 @@ public class Address {
     private String phone;
     private String email;
 
+    public String getAddressId() {
+        return addressId;
+    }
+
+    public void setAddressId(String addressId) {
+        this.addressId = addressId;
+    }
+    
     public String getAddress1() {
         return address1;
     }
@@ -61,8 +70,7 @@ public class Address {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 37 * hash + Objects.hashCode(this.zipCode);
-        hash = 37 * hash + Objects.hashCode(this.email);
+        hash = 67 * hash + Objects.hashCode(this.addressId);
         return hash;
     }
 
@@ -78,10 +86,7 @@ public class Address {
             return false;
         }
         final Address other = (Address) obj;
-        if (!Objects.equals(this.zipCode, other.zipCode)) {
-            return false;
-        }
-        if (!Objects.equals(this.email, other.email)) {
+        if (!Objects.equals(this.addressId, other.addressId)) {
             return false;
         }
         return true;
